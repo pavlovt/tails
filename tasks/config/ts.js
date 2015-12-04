@@ -5,7 +5,7 @@
  */
 module.exports = function(grunt) {
     grunt.config.set('ts', {
-        server_commonJs: {
+        dev: {
             files: [
                 {
                     src: [
@@ -17,8 +17,8 @@ module.exports = function(grunt) {
 
             options: {
                 module: 'commonjs',
-                target: 'es6',
-                fast: 'watch',
+                target: 'es5',
+                fast: 'never',
                 comments: true,
                 sourceMap: false,// Useless on the server side.
                 declaration: true,// Always useful to have declarations available.

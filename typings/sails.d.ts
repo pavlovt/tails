@@ -1,21 +1,24 @@
-///<reference path="../node/node.d.ts"/>
-declare module Express{
-  export interface Request{
+///<reference path="node/node.d.ts"/>
+///<reference path="es6-promise/es6-promise.d.ts"/>
+declare module Express {
+  export interface Request {
 
     params :{
       all():Object;
     }
 
   }
-  export interface Response{
+
+  export interface Response {
     view(route:string);
   }
-  export interface Application{}
+
+  export interface Application {}
 }
 
-declare module Sails{
+declare module Sails {
 
-  export interface Model{
+  export interface Model {
     attributes:Object;
 
     create(params:Object):WaterlinePromise<QueryResult>;
@@ -23,16 +26,11 @@ declare module Sails{
     create(params:Object,cb:(err:Error,created:QueryResult)=>void):void;
     create(params:Array<Object>,cb:(err:Error,created:Array<QueryResult>)=>void):void;
 
-
-
     find():QueryBuilder;
     find(params:Object):QueryBuilder;
     find(params:Object):WaterlinePromise<Array<QueryResult>>;
 
     findOne(criteria:Object):WaterlinePromise<QueryResult>;
-
-
-
 
     count(criteria:Object):WaterlinePromise<number>;
     count(criteria:Array<Object>):WaterlinePromise<number>;
@@ -54,8 +52,6 @@ declare module Sails{
     destroy(criteria:string,cb:(err:Error,deleted:Array<Record>)=>void):void;
     destroy(criteria:number,cb:(err:Error,deleted:Array<Record>)=>void):void;
 
-
-
     update(criteria:Object,changes:Object):WaterlinePromise<Array<QueryResult>>;
     update(criteria:Array<Object>,changes:Object):WaterlinePromise<Array<QueryResult>>;
     update(criteria:string,changes:Object):WaterlinePromise<Array<QueryResult>>;
@@ -70,7 +66,6 @@ declare module Sails{
     update(criteria:Array<Object>,changes:Array<Object>,cb:(err:Error,updated:Array<QueryResult>)=>void):void;
     update(criteria:string,changes:Array<Object>,cb:(err:Error,updated:Array<QueryResult>)=>void):void;
     update(criteria:number,changes:Array<Object>,cb:(err:Error,updated:Array<QueryResult>)=>void):void;
-
 
     query(sqlQuery:string,cb:(err:Error,results:Array<Record>)=>void);
     native(cb:(err:Error,collection:Model)=>void);
@@ -87,29 +82,23 @@ declare module Sails{
 
   }
 
-
-  export class WaterlinePromise<T> extends Promise<T>{
+  export class WaterlinePromise<T> extends Promise<T> {
     exec(cb:(err:Error,results:Array<QueryResult>)=>void);
     exec(cb:(err:Error,result:QueryResult)=>void);
   }
 
-
-
-
-  export class Record{
+  export class Record {
     id:number;
     createdAt:Date;
     updatedAt:Date;
   }
-  export class QueryResult extends Record{
+
+  export class QueryResult extends Record {
     destroy():Promise<Array<Sails.QueryResult>>;
     toJSON():Object;
   }
 
-
-
-
-  export class QueryBuilder extends Promise<any>{
+  export class QueryBuilder extends Promise<any> {
     exec(cb:(error:any,results:Array<QueryResult>)=>void);
 
     where(condition:Object):QueryBuilder;
@@ -120,8 +109,7 @@ declare module Sails{
     populate(association:string,filter:Object):QueryBuilder;
   }
 
-
-  export interface Controller{
+  export interface Controller {
 
   }
 
