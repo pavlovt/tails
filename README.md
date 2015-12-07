@@ -2,7 +2,7 @@
 
 This is SailsJS project in which you can write your Models and Controllers in TypeScript and your styles in Sass.
 
-## Istallation
+## Installation
 
 1. git clone this project
 2. npm install

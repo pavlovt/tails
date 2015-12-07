@@ -9,9 +9,9 @@ module.exports = function(grunt) {
             files: [
                 {
                     src: [
-                        'api/**/*.ts'
+                        'ts_api/**/*.ts'
                     ],
-                    dest: ''// Will generate at the exact same location as the source.
+                    dest: 'api'// Will generate at the exact same location as the source.
                 }
             ],
 

@@ -5,7 +5,7 @@ var TestController = (function () {
     }
     TestController.prototype.test = function (req, res) {
         //
-        return res.view('test');
+        return res.view('test1');
     };
     return TestController;
 })();
